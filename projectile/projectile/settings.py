@@ -39,12 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # third party apps
     'rest_framework',
+    'rest_framework.authtoken',
     'django_filters',
     'sorl.thumbnail',
     'drf_spectacular',
+    'django_extensions',
     # django apps
     'common',
     'core',
+    'restaurant',
 ]
 
 MIDDLEWARE = [

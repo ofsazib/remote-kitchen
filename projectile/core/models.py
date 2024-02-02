@@ -88,3 +88,4 @@ class User(
 
     def __str__(self):
         return f"ID: {self.id}, Kind: {self.kind}, Name: {self.first_name} {self.last_name}, Phone: {self.phone}"
+
