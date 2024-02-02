@@ -71,6 +71,9 @@ class User(
         blank=True,
         help_text="Designation of an employee, only valid for employee kind user",
     )
+    owner = models.ForeignKey(
+        'self', on_delete=models.SET_NULL, null=True, blank=True, related_name='employees'
+    )
 
     # Hack: Do not use username field, we are using phone as the unique id
     username = None
@@ -84,4 +87,4 @@ class User(
         ordering = ("-pk",)
 
     def __str__(self):
-        return f"ID: {self.id}, Name: {self.first_name} {self.last_name}, Phone: {self.phone}"
+        return f"ID: {self.id}, Kind: {self.kind}, Name: {self.first_name} {self.last_name}, Phone: {self.phone}"

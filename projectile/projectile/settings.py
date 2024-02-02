@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # third party apps
+    'rest_framework',
+    'django_filters',
     'sorl.thumbnail',
+    'drf_spectacular',
     # django apps
     'common',
     'core',
@@ -158,6 +162,7 @@ REST_FRAMEWORK = {
         'anon': '1000/min',
         'user': '2000/min'
     },
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
     # 'DEFAULT_PARSER_CLASSES': [
     #     'rest_framework.parsers.JSONParser',
     #     'rest_framework.parsers.FormParser',
@@ -166,4 +171,13 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 20,
     'PAGINATE_BY_PARAM': 'page_size'
+}
+
+# drf-spectacular settings
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Remote Kitchen API',
+    'DESCRIPTION': 'A Remote Kitchen Management Platform',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
 }

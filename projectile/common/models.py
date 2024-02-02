@@ -54,11 +54,47 @@ class BaseModel(models.Model):
         abstract = True
         ordering = ('-created_at',)
 
+    def get_all(
+            self,
+            filter_status=None,
+            order_by=None,
+            related_fields=None,
+            only_fields=None
+            ):
+        if related_fields is None:
+            related_fields = []
+        if only_fields is None:
+            only_fields = []
+        if filter_status is None:
+            if order_by is None:
+                return self.__class__.objects.filter().select_related(*related_fields).only(*only_fields)
+            else:
+                return self.__class__.objects.filter().select_related(
+                    *related_fields
+                ).only(
+                    *only_fields
+                ).order_by(order_by)
+        else:
+            if order_by is None:
+                return self.__class__.objects.filter(
+                ).select_related(
+                    *related_fields
+                ).only(
+                    *only_fields
+                ).filter(status=filter_status)
+            else:
+                return self.__class__.objects.filter(
+                ).select_related(
+                    *related_fields
+                ).only(
+                    *only_fields
+                ).filter(status=filter_status).order_by(order_by)
+
     def get_all_actives(self):
         """Get all active instances
 
         Returns:
-            QuerySet: A queryset will all active instances for a mode
+            QuerySet: A queryset will all active instances for a model
         """
         return self.__class__.objects.filter(status=Status.ACTIVE).order_by('-pk')
 
@@ -73,6 +109,7 @@ class NameSlugDescriptionBaseModel(BaseModel):
     Args:
         BaseModel (django.db.model): A base model that will be used for name, description base model
     """
+    name = models.CharField(max_length=255)
     slug = AutoSlugField(
         populate_from='name',
         always_update=True,

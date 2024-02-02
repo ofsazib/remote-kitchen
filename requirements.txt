@@ -6,6 +6,8 @@ django-reversion==5.0.12
 django-phonenumber-field==7.3.0
 django-versatileimagefield==3.1
 djangorestframework==3.14.0
+django-filter==23.5
+drf-spectacular==0.27.1
 phonenumbers==8.13.29
 sqlparse==0.4.4
 sorl-thumbnail==12.10.0

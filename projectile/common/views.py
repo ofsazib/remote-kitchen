@@ -90,7 +90,7 @@ class RetrieveUpdateDestroyAPICustomView(RetrieveUpdateDestroyAPIView):
 
     permission_classes = ()
     create_data = {}
-    lookup_field = 'alias'
+    lookup_field = 'id'
 
     def perform_update(self, serializer, extra_fields=None):
         self.create_data = {}
