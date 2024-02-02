@@ -27,6 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/user/', include('core.urls')),
     path('api/v1/restaurants/', include('restaurant.urls')),
+    path('api/v1/payments/', include('payment.urls')),
     # drf-spectacular urls
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     # Optional UI:

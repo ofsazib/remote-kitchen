@@ -1,3 +1,12 @@
 from django.contrib import admin
 
-# Register your models here.
+from common.admin import BaseModelAdmin
+
+from payment.models import (
+    Payment,
+)
+
+
+admin.site.register(Payment)
+class PaymentAdmin(BaseModelAdmin):
+    pass
