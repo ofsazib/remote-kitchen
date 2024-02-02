@@ -6,6 +6,7 @@ from restaurant.views import (
     MenuDetails,
     MenuItemListCreate,
     MenuItemDetails,
+    OrderListCreate,
 )
 
 urlpatterns = [
@@ -15,4 +16,5 @@ urlpatterns = [
     path('menus/<int:id>/', MenuDetails.as_view(), name='menu-details'),
     path('menu/items/', MenuItemListCreate.as_view(), name='menu-item-list-create'),
     path('menu/items/<int:id>/', MenuItemDetails.as_view(), name='menu-item-details'),
+    path('orders', OrderListCreate.as_view(), name='order-list-create'),
 ]

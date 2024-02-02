@@ -12,3 +12,5 @@ drf-spectacular==0.27.1
 phonenumbers==8.13.29
 sqlparse==0.4.4
 sorl-thumbnail==12.10.0
+python-dotenv==1.0.1
+stripe==8.1.0

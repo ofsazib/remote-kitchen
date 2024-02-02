@@ -48,7 +48,7 @@ class Order(BaseModel):
     def __str__(self):
         return f"User: {self.user}, Total Price: {self.total_price}"
 
-class OrderItem(models.Model):
+class OrderItem(BaseModel):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField()
